@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StockSystem2.Models.COMMODITY>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>商品管理</h2>
+
+<p>
+    @Html.ActionLink("商品登録", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRICE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REGION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRICE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REGION)
+        </td>
+        <td>
+            @Html.ActionLink("編集", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("削除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

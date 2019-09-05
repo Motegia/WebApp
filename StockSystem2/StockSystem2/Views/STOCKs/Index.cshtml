@@ -1,0 +1,54 @@
+﻿@model IEnumerable<StockSystem2.Models.STOCK>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>在庫管理</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRICE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUONTITY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBTOTAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UPDATEHISTORY)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRICE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUONTITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUBTOTAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UPDATEHISTORY)
+        </td>
+        <td>
+            @Html.ActionLink("在庫数入力", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("削除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
